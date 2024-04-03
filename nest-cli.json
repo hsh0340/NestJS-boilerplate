@@ -10,15 +10,6 @@
   "monorepo": true,
   "root": "apps/nestjs-bolierplate",
   "projects": {
-    "nestjs-bolierplate": {
-      "type": "application",
-      "root": "apps/nestjs-bolierplate",
-      "entryFile": "main",
-      "sourceRoot": "apps/nestjs-bolierplate/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/nestjs-bolierplate/tsconfig.app.json"
-      }
-    },
     "admin-api": {
       "type": "application",
       "root": "apps/admin-api",
