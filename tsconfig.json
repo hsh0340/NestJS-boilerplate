@@ -16,7 +16,7 @@
     "forceConsistentCasingInFileNames": true, /* 파일 이름의 일관성 강제 여부 */
     "noFallthroughCasesInSwitch": true, /* switch 문에서 case 절이 누락되었을 때 오류 여부 */
     "paths": {
-      "apps/*": ["apps/*"]
+      "apps/*": ["apps/*"] /* 경로 별칭 설정 */
     }
   }
 }
