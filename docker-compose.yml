@@ -47,7 +47,7 @@ services:
     ports:
       - '6379:6379'
     volumes:
-      - nestjs-monorepo-boilerplate_redis_cache_vol:/var/lib/mysql
+      - nestjs-monorepo-boilerplate_redis_cache_vol:/data
   test-redis-cache:
     image: redis:7.2.4
     container_name: nestjs-monorepo-boilerplate-test-redis-cache
@@ -55,5 +55,7 @@ services:
     command: redis-server --requirepass password
     ports:
       - '6380:6379'
+    volumes:
+      - nestjs-monorepo-boilerplate_redis_cache_vol:/data
 
 
