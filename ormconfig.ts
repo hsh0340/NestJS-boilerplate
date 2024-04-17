@@ -1,7 +1,7 @@
-import { config } from 'dotenv';
+import * as dotenv from 'dotenv';
 import { DataSource } from 'typeorm';
 
-config({ path: '.env' });
+dotenv.config();
 
 const env = process.env.NODE_ENV;
 const host = env === 'test' ? process.env.TEST_DB_HOST : process.env.DB_HOST;
