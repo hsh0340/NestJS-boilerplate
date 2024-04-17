@@ -13,6 +13,7 @@
     "incremental": true, /* 증분 컴파일 활성화 여부 */
     "skipLibCheck": true, /* 라이브러리 검사 생략 여부 */
     "strict": true, /* 엄격한 타입 검사 여부 */
+    "strictPropertyInitialization": false, /* 클래스의 프로퍼티가 초기화 되었는지 검사 여부 */
     "forceConsistentCasingInFileNames": true, /* 파일 이름의 일관성 강제 여부 */
     "noFallthroughCasesInSwitch": true, /* switch 문에서 case 절이 누락되었을 때 오류 여부 */
     "paths": {
