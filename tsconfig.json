@@ -10,6 +10,7 @@
     "sourceMap": true, /* '.map' 파일 생성 여부 */
     "outDir": "./dist", /* 컴파일된 파일이 생성될 디렉토리 */
     "baseUrl": "./", /* 상대 경로를 계산할 기준 경로 */
+    "sourceRoot": "./src", /* 소스 파일의 루트 디렉토리 */
     "incremental": true, /* 증분 컴파일 활성화 여부 */
     "skipLibCheck": true, /* 라이브러리 검사 생략 여부 */
     "strict": true, /* 엄격한 타입 검사 여부 */
