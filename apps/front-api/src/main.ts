@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from 'apps/front-api/src/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
+import { ResponseSerializationInterceptor } from 'apps/infrastructure/interceptors/response-serialization.interceptor';
 
 declare const module: any;
 
@@ -16,6 +17,8 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
+
+  app.useGlobalInterceptors(new ResponseSerializationInterceptor());
 
   const port = configService.get<number>('ADMIN_PORT') || 8000;
   await app.listen(port);
