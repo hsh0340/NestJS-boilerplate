@@ -1,14 +1,15 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ControllerModule } from 'apps/front-api/src/controller.module';
 import { DomainModule } from 'apps/domain/domain.module';
-import { ConfigModule } from '@nestjs/config';
+import { LoggerMiddleware } from 'apps/infrastructure/middlewares/logger.middleware';
+import { InfrastructureModule } from 'apps/infrastructure/infrastructure.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({ envFilePath: '.env' }),
-    ControllerModule,
-    DomainModule,
-  ],
+  imports: [InfrastructureModule.forRoot(), ControllerModule, DomainModule],
   providers: [],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
