@@ -1,11 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from 'apps/front-api/src/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ConfigService } from '@nestjs/config';
 
 declare const module: any;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const configService = app.get<ConfigService>(ConfigService);
 
   const config = new DocumentBuilder()
     .setTitle('[nestjs-monorepo-boilerplate] front-api')
@@ -15,7 +17,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(8001);
+  const port = configService.get<number>('ADMIN_PORT') || 8000;
+  await app.listen(port);
 
   if (module.hot) {
     module.hot.accept();
