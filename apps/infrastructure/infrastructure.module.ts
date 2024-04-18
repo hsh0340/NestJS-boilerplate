@@ -1,4 +1,4 @@
-import { DynamicModule, Global, Module } from '@nestjs/common';
+import { DynamicModule, Global, Logger, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import {
@@ -7,10 +7,12 @@ import {
 } from 'typeorm-transactional';
 import { typeormConfig } from 'apps/infrastructure/typeorm.config';
 import { DataSource } from 'typeorm';
+import { ConfigModule } from '@nestjs/config';
 
 @Global()
 @Module({
   imports: [
+    ConfigModule.forRoot({ envFilePath: '.env' }),
     TypeOrmModule.forRootAsync({
       useFactory: typeormConfig,
       async dataSourceFactory(options) {
@@ -24,8 +26,8 @@ import { DataSource } from 'typeorm';
 
     TypeOrmModule.forFeature(),
   ],
-  providers: [],
-  exports: [TypeOrmModule],
+  providers: [Logger],
+  exports: [TypeOrmModule, Logger],
 })
 export class InfrastructureModule {
   public static forRoot(): DynamicModule {
