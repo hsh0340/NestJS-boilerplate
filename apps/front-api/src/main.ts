@@ -20,7 +20,7 @@ async function bootstrap() {
 
   app.useGlobalInterceptors(new ResponseSerializationInterceptor());
 
-  const port = configService.get<number>('ADMIN_PORT') || 8000;
+  const port = configService.get<number>('PORT') || 8000;
   await app.listen(port);
 
   if (module.hot) {
