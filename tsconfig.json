@@ -17,6 +17,7 @@
     "strictPropertyInitialization": false, /* 클래스의 프로퍼티가 초기화 되었는지 검사 여부 */
     "forceConsistentCasingInFileNames": true, /* 파일 이름의 일관성 강제 여부 */
     "noFallthroughCasesInSwitch": true, /* switch 문에서 case 절이 누락되었을 때 오류 여부 */
+    "esModuleInterop": true, /* CommonJS 모듈을 ES6 모듈처럼 사용할 수 있게 하는 여부 */
     "paths": {
       "apps/*": ["apps/*"] /* 경로 별칭 설정 */
     }
