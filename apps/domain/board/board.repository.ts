@@ -11,10 +11,12 @@ export class BoardRepository {
     private readonly boardRepository: Repository<Board>,
   ) {}
 
-  async createBoard(dto: CreateBoardDto) {
+  async createBoard(dto: CreateBoardDto): Promise<Board> {
     const board = new Board();
+
     board.title = dto.title;
     board.content = dto.content;
-    await this.boardRepository.save(board);
+
+    return await this.boardRepository.save(board);
   }
 }
