@@ -4,6 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
 import { ResponseSerializationInterceptor } from 'apps/infrastructure/interceptors/response-serialization.interceptor';
 import { ValidationPipe } from '@nestjs/common';
+import { HttpExceptionFilter } from 'apps/infrastructure/filters/http-exception.filter';
 
 declare const module: any;
 
@@ -12,6 +13,7 @@ async function bootstrap() {
   const configService = app.get<ConfigService>(ConfigService);
 
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalFilters(new HttpExceptionFilter());
 
   const config = new DocumentBuilder()
     .setTitle('[nestjs-monorepo-boilerplate] front-api')
