@@ -8,6 +8,9 @@ import {
 import { typeormConfig } from 'apps/infrastructure/typeorm.config';
 import { DataSource } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { Board } from 'apps/domain/board/board.entity';
+
+const entities = [Board];
 
 @Global()
 @Module({
@@ -24,7 +27,7 @@ import { ConfigModule } from '@nestjs/config';
       },
     }),
 
-    TypeOrmModule.forFeature(),
+    TypeOrmModule.forFeature(entities),
   ],
   providers: [Logger],
   exports: [TypeOrmModule, Logger],
