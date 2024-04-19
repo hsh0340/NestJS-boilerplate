@@ -3,12 +3,15 @@ import { AppModule } from 'apps/front-api/src/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
 import { ResponseSerializationInterceptor } from 'apps/infrastructure/interceptors/response-serialization.interceptor';
+import { ValidationPipe } from '@nestjs/common';
 
 declare const module: any;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get<ConfigService>(ConfigService);
+
+  app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
     .setTitle('[nestjs-monorepo-boilerplate] front-api')
