@@ -9,8 +9,9 @@ import { typeormConfig } from 'apps/infrastructure/typeorm.config';
 import { DataSource } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { Board } from 'apps/domain/board/board.entity';
+import { User } from 'apps/domain/user/user.entity';
 
-const entities = [Board];
+const entities = [Board, User];
 
 @Global()
 @Module({
