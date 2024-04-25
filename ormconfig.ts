@@ -3,7 +3,7 @@ import { DataSource } from 'typeorm';
 
 dotenv.config();
 
-const env = process.env.NODE_ENV;
+const env = process.env.APP_ENV;
 const host = env === 'test' ? process.env.TEST_DB_HOST : process.env.DB_HOST;
 const port = env === 'test' ? process.env.TEST_DB_PORT : process.env.DB_PORT;
 const username =
