@@ -83,6 +83,10 @@
     "testEnvironment": "node",
     "roots": [
       "<rootDir>/apps/"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^apps/(.*)$": "<rootDir>/apps/$1",
+      "ormconfig": "<rootDir>/ormconfig.ts"
+    }
   }
 }
