@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Board } from 'apps/domain/board/board.entity';
 import { Repository } from 'typeorm';
-import { CreateBoardDto } from 'apps/domain/board/dto/create-board.dto';
 
 @Injectable()
 export class BoardRepository {
@@ -11,12 +10,20 @@ export class BoardRepository {
     private readonly boardRepository: Repository<Board>,
   ) {}
 
-  async createBoard(dto: CreateBoardDto): Promise<Board> {
+  /**
+   * 게시물을 생성합니다.
+   * @param title 제목
+   * @param content 내용
+   * @return Board
+   */
+  async insertBoard(title: string, content: string): Promise<Board> {
     const board = new Board();
 
-    board.title = dto.title;
-    board.content = dto.content;
+    board.title = title;
+    board.content = content;
 
-    return await this.boardRepository.save(board);
+    await this.boardRepository.insert(board);
+
+    return board;
   }
 }

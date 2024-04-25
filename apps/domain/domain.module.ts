@@ -1,6 +1,6 @@
-import { BoardService } from 'apps/domain/board/board.service';
+import { BoardService } from 'apps/domain/board/service/board.service';
 import { Module } from '@nestjs/common';
-import { BoardRepository } from 'apps/domain/board/board.repository';
+import { BoardRepository } from 'apps/domain/board/repository/board.repository';
 import { UserService } from 'apps/domain/user/user.service';
 import { UserRepository } from 'apps/domain/user/user.repository';
 
