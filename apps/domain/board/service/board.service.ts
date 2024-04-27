@@ -9,6 +9,6 @@ export class BoardService {
   constructor(private readonly boardRepository: BoardRepository) {}
 
   async createBoard(dto: CreateBoardDto): Promise<Board> {
-    return await this.boardRepository.insertBoard(dto.title, dto.content);
+    return await this.boardRepository.createBoard(dto.title, dto.content);
   }
 }
