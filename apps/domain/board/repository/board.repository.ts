@@ -14,9 +14,9 @@ export class BoardRepository {
    * 게시물을 생성합니다.
    * @param title 제목
    * @param content 내용
-   * @return Board
+   * @return 생성된 게시물
    */
-  async insertBoard(title: string, content: string): Promise<Board> {
+  async createBoard(title: string, content: string): Promise<Board> {
     const board = new Board();
 
     board.title = title;
