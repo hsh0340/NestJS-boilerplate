@@ -26,4 +26,13 @@ export class BoardRepository {
 
     return board;
   }
+
+  /**
+   * 게시물을 조회합니다.
+   * @param id 게시물 고유 id
+   * @return 게시물이 존재한다면 Board 객체를, 존재하지 않는다면 null 을 반환합니다.
+   */
+  async getBoardById(id: number): Promise<Board | null> {
+    return await this.boardRepository.findOne({ where: { id } });
+  }
 }
